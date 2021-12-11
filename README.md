@@ -1,2 +1,2 @@
 # calmareh
-*Cal*endários de Marés para Google Calendar
+**Cal**endários de Marés para Google Calendar
