@@ -10,6 +10,9 @@ from selenium import webdriver
 from bs4 import UnicodeDammit
 import pandas as pd
 
+## ANO ESCOLHIDO
+ano = str(21)
+
 # prepare the option for the chrome driver
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
@@ -17,15 +20,17 @@ options.add_argument("--ignore-certificate-errors")
 options.add_argument('log-level=3')
 browser = webdriver.Chrome(options=options)
 
+#Pandas - Dataframe
 column_names = ['text']
 df = pd.DataFrame(columns = column_names)
 
-ano = str(21)
+
 # ACESSAR SITE
 for p in variables.portos_br:
+    cod_porto = p[0]
     for i in range(12):
         mes = str(i+1).zfill(2)
-        url = variables.search_url + p[0] + "&mes=" + mes + "&ano=" + ano
+        url = variables.search_url + cod_porto + "&mes=" + mes + "&ano=" + ano
         browser.get(url)  
         html = browser.page_source
         soup = BeautifulSoup(html, "html.parser", from_encoding="utf-8") #or soup = BeautifulSoup(html, from_encoding=encoding)
@@ -40,5 +45,5 @@ for p in variables.portos_br:
                 
                 df = df.append({'text':x}, ignore_index=True)
             
-    df.to_csv(('issomesmo.csv'), mode='a', header=False)        
+    df.to_csv((cod_porto + '_' + ano +'.csv'), mode='a', header=False)        
             

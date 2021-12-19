@@ -1,5 +1,6 @@
 # Código dos portos no select da pagina - http://ondas.cptec.inpe.br/
-portos_br = [["60135","Barra do Porto de Paranaguá-Galheta","PR"],
+portos_br = [
+["60135","Barra do Porto de Paranaguá-Galheta","PR"],
 ["60130","Barra do Porto de Paranaguá-Sueste","PR"],
 ["10653","Barra Norte do Rio Amazonas","AP"],
 ["30825","Capitania dos Portos de Sergipe","SE"],
@@ -52,7 +53,8 @@ portos_br = [["60135","Barra do Porto de Paranaguá-Galheta","PR"],
 ["30810","Terminal Marítmo Inácio Barbosa","SE"],
 ["60139","Terminal Portuário da Ponta do Félix","PR"],
 ["30337","Terminal Portuário de Pecem","CE"],
-["10572","Trapiche de Breves","PA"]]
+["10572","Trapiche de Breves","PA"]
+]
 
 
 # Dividindo a url das tabelas
