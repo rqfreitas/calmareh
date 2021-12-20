@@ -1,10 +1,5 @@
-#SALVA DADOS PARA CSV - Marinha ou CPTEC
-#ESCOLHE O PORTO E ANO?
-#GERA CABECALHO DO CALENDARIO
-#EXTRAI CSV EM DOIS ARRAYS(hora e altura) POR DIA
-#RODA O CSV E SALVA CADA EVENTO NO ICS
-#INTERESSANTE FAZER POR ANO.
-
+#DOWNLOAD DO CPTEC PARA CSV
+#ESCOLHE ANO E PORTO PARA BAIXAR O DOWNLOAD
 import requests
 import time
 import re
@@ -26,9 +21,10 @@ browser = webdriver.Chrome(options=options)
 column_names = ['text']
 df = pd.DataFrame(columns = column_names)
 
+#Acessa o CPTEC e baixa dados do ano para determinado porto
 def get_mare_porto(porto_info,ano):
     df_mares_ano = pd.DataFrame(columns = column_names)
-    cod_porto = porto_info[0]
+    cod_porto = porto_info
     for i in range(12):
         mes = str(i+1).zfill(2)
         url = variables.search_url + cod_porto + "&mes=" + mes + "&ano=" + ano
@@ -47,12 +43,12 @@ def get_mare_porto(porto_info,ano):
                 df_mares_ano = df_mares_ano.append({'text':x}, ignore_index=True)
     return df_mares_ano
 
-# ACESSAR SITE
+# Para cada porto - pega dados em Dataframe e salva no csv
 for p in variables.portos_br:
     ano = str(21)
     cod_porto = p[0]
 
-    df = get_mare_porto(p,ano)
+    df = get_mare_porto(cod_porto,ano)
             
     df.to_csv(("../csv/"  + ano + '_' + cod_porto +'.csv'), mode='a', header=False)        
             

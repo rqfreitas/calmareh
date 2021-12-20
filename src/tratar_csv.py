@@ -25,4 +25,4 @@ with open('mare2021.csv', 'r') as read_obj:
         tabua_dia = ""
         for dupla in range(len(horas)):
             tabua_dia = tabua_dia + horas[dupla] + " - " + alturas[dupla] + "\n"
-        print(tabua_dia)
+        print(tabua_dia) #Descrição calendário
