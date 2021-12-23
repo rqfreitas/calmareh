@@ -65,7 +65,7 @@ def mares_cidade(url_cidade):
                     mareh = [m1,m2,m3,m4]
                     print(dia+"/"+str(mes))
                     print(mareh)
-                    df_cidade = df_cidade.append({'dia':dia,'mes':mes, 'maré':mareh}, ignore_index=True)
+                    df_cidade = df_cidade.append({'dia':dia,'mes':str(mes).zfill(2), 'maré':mareh}, ignore_index=True)
     df_cidade.to_csv(( uf + '_' + city +'.csv'), mode='a', header=False)  
 
 
