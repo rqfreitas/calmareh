@@ -8,7 +8,7 @@
 import requests
 import time
 import re
-import variables
+import portos_cptec
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from bs4 import UnicodeDammit
@@ -26,12 +26,14 @@ browser = webdriver.Chrome(options=options)
 column_names = ['text']
 df = pd.DataFrame(columns = column_names)
 
+sera = "que deleta tudo"
+
 def get_mare_porto(porto_info,ano):
     df_mares_ano = pd.DataFrame(columns = column_names)
     cod_porto = porto_info[0]
     for i in range(12):
         mes = str(i+1).zfill(2)
-        url = variables.search_url + cod_porto + "&mes=" + mes + "&ano=" + ano
+        url = portos_cptec.search_url + cod_porto + "&mes=" + mes + "&ano=" + ano
         browser.get(url)  
         html = browser.page_source
         soup = BeautifulSoup(html, "html.parser", from_encoding="utf-8") #or soup = BeautifulSoup(html, from_encoding=encoding)
@@ -48,7 +50,7 @@ def get_mare_porto(porto_info,ano):
     return df_mares_ano
 
 # ACESSAR SITE
-for p in variables.portos_br:
+for p in portos_cptec.portos_br:
     ano = str(21)
     cod_porto = p[0]
 
