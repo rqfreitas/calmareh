@@ -22,3 +22,15 @@ Na pasta ics tem o nome do calendário há uma pasta para dados anteriores a 202
 Dados anteriores a 2022 foram obtidos do site do Instituo Nacional de Pesquisas Especiais (https://cptec.inpe.br)
 
 Dados de 2022  utilizaram como fonte o site da Marinha.
+
+
+# Roadmap
+- Disponibilizar arquivos .ics das cidades mais requisitadas(capitais). |  ⏳ (01/01/2022)
+- Disponibilizar arquivos .ics de todas as cidades. | ⏳ (10/01/2022)
+- Disponibilizar arquivos .ics de anos anteriores de todas as cidades. | ⏳ (01/02/2022)
+- Disponibilizar os calendários com URL do Google das cidades mais requisitadas, para importação ser dinâmica. | ⏳ (01/02/2022)
+
+```diff
+- Update 23/12/2021 - Até agora só estão disponíveis os dados até Março de 2022 no site tabuademarés.com
+@@ Update 23/12/2021 - Até agora só estão disponíveis os dados até Março de 2022 no site tabuademarés.com
+```
