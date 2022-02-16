@@ -19,7 +19,7 @@ Na pasta ics tem o nome do calendário há uma pasta para dados anteriores a 202
  - Old-UF-Cidade.ics - Calendário anteriores a 2022 do porto escolhido (Marés do dia).
 
 ## Fontes
-Dados anteriores a 2022 foram obtidos do site do Instituo Nacional de Pesquisas Especiais (https://cptec.inpe.br)
+Dados anteriores a 2022 foram obtidos do site da Marinha do Brasil (https://www.marinha.mil.br/chm/tabuas-de-mare)
 
 Dados de 2022  utilizaram como fonte o site da Marinha.
 

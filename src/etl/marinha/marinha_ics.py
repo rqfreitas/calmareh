@@ -1,50 +1,12 @@
-#resolver problema de + de 4 marés/dia
-#rescrever csv
-#transformar pra ics
 
 import numpy as np
 import os
 from ast import literal_eval
 from csv import reader
 
-path = 'csv/'
-csv_files = os.listdir(path)
-data_ini = "20220101"
-utcdiff = 3
+csv_source = 'src/etl/marinha/csv_marinha/'
+arquivo = 'Pernambuco - PORTO DE SUAPE - 2022.csv'
 
-def info_lugar(arquivo):
-    info_lugar = []
-    partes = arquivo.split("_")
-    partes = arquivo[:(arquivo.rfind(".") - 1)]
-
-    estado_file = partes[0]
-    cidade_file = partes[1]
-
-    if len(partes) > 2:
-        estilo_file = partes[2]
-    
-def calendario_cidade(cidade,estilo):
-    for f in csv_files:
-        partes = f.split("_")
-        if len(partes)>1:
-            cidade_file = partes[1][:-4]
-            estado_file = partes[0]
-            if cidade_file == cidade:
-                csv_to_cal(f, estilo)
-
-def calendario_estado(estado,estilo):
-    for f in csv_files:
-        partes = f.split("_")
-        estado_file = partes[0]
-        cidade_file = partes[1][:-4]
-        if estado_file == estado:
-            csv_to_cal(f, estilo)
-
-def calendarios(estilo):
-    for f in csv_files:
-        csv_to_cal(f, estilo)
-
-# open file in read mode
 def csv_to_cal(arquivo,estilo):
     prefixo = arquivo[:(arquivo.rfind("."))] #nome do arquivo sem extensão
     sufixo = ""
@@ -116,7 +78,6 @@ def descricao_sinalizada(mareh_array):
     indice_gravacao = 1
     descricao_mareh = ""
     
-
     if mareh_array[0][1] < mareh_array[1][1]:
         troca = seta1
         seta1 = seta2
@@ -129,9 +90,6 @@ def descricao_sinalizada(mareh_array):
     mareh_array[1][1] =  mareh_array[1][1] + "m " + seta2
     mareh_array[2][1] =  mareh_array[2][1] + "m " + seta1
     mareh_array[3][1] =  mareh_array[3][1] + "m " + seta2
-
-        
-
 
 
     for m in mareh_array:
