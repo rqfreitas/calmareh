@@ -11,7 +11,7 @@ txt_dest = 'src/etl/marinha/txt_marinha/'
 
 pdf_path =  'src/etl/marinha/pdfmare.pdf'
 
-
+# PEGA TEXTO DA PAGINA E LIMPA COM REGEX
 def trata_pagina(texto):
     texto_novo = re.sub(r'(HORA ALT \(m\)( {0,7}))', '', texto)
     texto_novo = re.sub(r'01([A-Z]{3})', '\nmes\n', texto_novo) #Quebra mês - 01SAB
@@ -25,6 +25,7 @@ def trata_pagina(texto):
     pagina_tatada = texto_novo[inicio:fim]
     return (pagina_tatada + "\n")
 
+#PASSA POR CADA PAGINA DO PDF, LIMPANDO COM REGEX, E DEVOLVE UM TEXTO TRATADO
 def trata_pdf(path):
     texto = ""
     
@@ -39,8 +40,8 @@ def trata_pdf(path):
 
     return pdf_tratado
 
-
-def transforma_pdf(path):
+#PASSA UM PDF PARA SER LIMPO POR REGEX, PASSA PRA TXT, DEPOIS LE CADA LINHA DO TXT E TRANSFORMA EM CSV
+def transforma_pdf(path, ano):
     print(path)
     extensao = path[-3:]
     if extensao == "pdf":
@@ -67,7 +68,7 @@ def transforma_pdf(path):
                     if linha != "":
                         linha_div = linha.replace("\n","").split(",")
                         dia = dia + 1
-                        data = str(mes).zfill(2)+str(dia).zfill(2)
+                        data = str(ano) +"-"+str(mes).zfill(2)+"-"+str(dia).zfill(2)
                         print(data)
                         for b in linha_div:
                             binomio = b.split("-")
@@ -82,14 +83,14 @@ def transforma_pdf(path):
             df.to_csv(csv_dest+ tratado_path[:-4]+".csv", sep=',',index=False)
 
 
-def transforma_pasta(path):
+def transforma_pasta(path, ano):
     csv_files = os.listdir(path)
     for file in csv_files:
-        transforma_pdf(pdf_source+file)
+        transforma_pdf(pdf_source+file,ano)
         
 
 
-transforma_pasta(pdf_source)
+transforma_pasta(pdf_source,2022)
 
 
 
