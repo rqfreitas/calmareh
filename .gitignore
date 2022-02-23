@@ -1,5 +1,6 @@
 src/etl/marinha/csv_marinha/
 src/etl/marinha/txt_marinha/
+src/etl/marinha/ics_marinha/
 src/__pycache__/
 src/old
 

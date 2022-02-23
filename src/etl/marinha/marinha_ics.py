@@ -8,7 +8,7 @@ from calendar import monthrange
 import datetime
 
 csv_source = 'src/etl/marinha/csv_marinha/'
-ics_dest = 'src/etl/marinha/ics_marinha/'
+ics_dest = 'ics/'
 arquivo = 'Pernambuco - PORTO DE SUAPE - 2022.csv'
 utcdiff = 3
 
